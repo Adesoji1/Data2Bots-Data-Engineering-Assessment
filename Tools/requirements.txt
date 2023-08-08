@@ -1,0 +1,5 @@
+# Python dependencies required for solution 
+psycopg2-binary
+boto3
+
+

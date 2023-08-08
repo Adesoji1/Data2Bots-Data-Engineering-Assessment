@@ -1,0 +1,19 @@
+1. The `orders` table is linked to the `dim_customers` table through the `customer_id` field.
+2. The `orders` table is linked to the `dim_products` table through the `product_id` field.
+3. The `orders` table is linked to the `shipments_deliveries` table through the `order_id` field.
+4. The `dim_customers` table is linked to the `dim_addresses` table through the `postal_code` field.
+5. The `orders` table is linked to the `dim_dates` table through the `order_date` and `calendar_dt` fields.
+
+From the above relationships, we can infer the following foreign key relationships:
+
+1. `customer_id` in `orders` -> `customer_id` in `dim_customers`
+2. `product_id` in `orders` -> `product_id` in `dim_products`
+3. `order_id` in `orders` -> `order_id` in `shipments_deliveries`
+4. `postal_code` in `dim_customers` -> `postal_code` in `dim_addresses`
+5. `order_date` in `orders` -> `calendar_dt` in `dim_dates`
+
+So, there are indeed 5 foreign key relationships based on the relationships we've described.
+
+In Addition,
+6. The `reviews` table is linked to the `dim_products` table through the product_id field.
+7. The `dim_dates` table is linked to the `shipments_deliveries` table through the delivery_date, shipment_date, and calendar_dt fields.
