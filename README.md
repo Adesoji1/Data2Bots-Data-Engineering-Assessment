@@ -27,7 +27,7 @@ Your goal is to create an efficient ETL (Extract, Transform, Load) process to in
 
 ## Schema Explanaition
 
-The relationship between the variables in the data model tables are explained  <a name="here"></a> [here](../Data2Bots-Data-Engineering-Assessment/Terraform/PostgreSQLSchema_management/schemadefinition.txt)
+The relationship between the variables in the data model tables are explained  <a name="here"></a> [here](./Terraform/PostgreSQLSchema_management/schemadefinition.txt)
 
 ## Solution Overview
 
@@ -53,7 +53,7 @@ to accomplish the ETL process
 - `sample_scripts/`: Python Scripts illustrating the step-by-step process of the ETL pipeline ![Sample Script Icon](https://img.icons8.com/color/48/000000/code-file.png)
 
 - `data/`: contains Sample data files for testing and development.In addition, it contains the csv files of the transformed data exported to csv format
-![Data File Icon](../Data2Bots-Data-Engineering-Assessment/Screenshots/database.png)
+![Data File Icon](Screenshots/database.png)
 
 - `Screenshots/`: Pictures showing real time work evidence of the solution via screenshot ![Screenshot Icon](https://img.icons8.com/color/48/000000/screenshot.png)
 
@@ -71,12 +71,12 @@ to accomplish the ETL process
 
 Follow these steps to set up and run the Data Engineering solution:
 
-1. Clone this repository: `https://github.com/Adesoji1/Data2Bots-Data-Engineering-Assessment.git`
+1. Clone this repository: https://github.com/Adesoji1/Data2Bots-Data-Engineering-Assessment.git
 2. Install the required Python packages found in Data2Bots-Data-Engineering-Assessment/Tools: `pip install -r requirements.txt`
 3. Install and verify [Terraform-Install-(guide)](#anchor-name)
  [Terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli),[aws-cli](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) and [Terraform-docs](https://github.com/terraform-docs/terraform-docs) have been properly installed. Get datawarehouse login details from data2bots received test invitation. example below
 
- ![Datawarehouse Login](../Data2Bots-Data-Engineering-Assessment/Screenshots/datawarehouseconnection_details.png)
+ ![Datawarehouse Login](Screenshots/datawarehouseconnection_details.png)
    
 
 4.Run the ETL pipeline scripts in this order below: 
@@ -84,50 +84,42 @@ Follow these steps to set up and run the Data Engineering solution:
    (a) in `Data2Bots-Data-Engineering-Assessment/src/Extract` directory, run extract.py e.g python extract.py or python3 extract.py in your bash(Linux) or commandline(Windows) terminal.
 
    (b) in `Data2Bots-Data-Engineering-Assessment/src/Load` directory, run load_orders.py and load_shipmentanddeliveries_reviews.py respectively in your bash(Linux) or commandline(Windows) terminal.
-   ![load orders](../Data2Bots-Data-Engineering-Assessment/Screenshots/load_orders.png)
+   ![load orders](Screenshots/load_orders.png)
 
-   ![load shipment_deliveries and reviews](../Data2Bots-Data-Engineering-Assessment/Screenshots/load_shipmentdeliveries_review.png)
+   ![load shipment_deliveries and reviews](Screenshots/load_shipmentdeliveries_review.png)
    
    
-   (c) <a name="here"></a> [here](../Data2Bots-Data-Engineering-Assessment/src/Transform/sql/agg_public_holiday.sql), At different times, run agg_shipment.sql,agg_public_holiday.sql and best_performing_product.sql in a query editor in pgadmin4 client or psql client in the terminal in linux after connecting your database host,address and password to the psql or pgadmin4 client in order to interact with the database. 
+   (c) <a name="here"></a> [here](./src/Transform/sql/agg_public_holiday.sql), At different times, run agg_shipment.sql,agg_public_holiday.sql and best_performing_product.sql in a query editor in pgadmin4 client or psql client in the terminal in linux after connecting your database host,address and password to the psql or pgadmin4 client in order to interact with the database. 
     below is the result of agg_ship is (175,6586)
-   ![Result](../Data2Bots-Data-Engineering-Assessment/Screenshots/agg_shipment_result.png) 
+   ![Result](Screenshots/agg_shipment_result.png) 
 
    Here is the creation of the agg_public_holiday table
-   using the file located  <a name="here"></a> [here](../Data2Bots-Data-Engineering-Assessment/src/Transform/sql/agg_public_holiday.sql)
+   using the file located  <a name="here"></a> [here](./src/Transform/sql/agg_public_holiday.sql)
 
-   ![Result](../Data2Bots-Data-Engineering-Assessment/Screenshots/show_agg_public_holiday.png) In addition, it could also be found <a name="here"></a> [here](../Data2Bots-Data-Engineering-Assessment/data/final_app_publication_holiday.csv)
+   ![Result](Screenshots/show_agg_public_holiday.png) In addition, it could also be found <a name="here"></a> [here](./data/final_app_publication_holiday.csv)
    
-   Next we view the best performing product(screwdriver) Table 👇 and it could also be located  <a name="here"></a> [here](../Data2Bots-Data-Engineering-Assessment/data/best_performing_product.csv)
+   Next we view the best performing product(screwdriver) Table 👇 and it could also be located  <a name="here"></a> [here](./data/best_performing_product.csv)
 
-   ![Best Performing prodcut](../Data2Bots-Data-Engineering-Assessment/Screenshots/best_performing_product.png)
+   ![Best Performing prodcut](Screenshots/best_performing_product.png)
 
-5.Configure your [AWS credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html) in order to access and upload to S3 bucket for submission. see below 👇in the image ![description](../Data2Bots-Data-Engineering-Assessment/Screenshots/awsconfigure.png)
+5.Configure your [AWS credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html) in order to access and upload to S3 bucket for submission. see below 👇in the image ![description](Screenshots/awsconfigure.png)
 
-6.The python script needed to upload your files for submission is located  <a name="here"></a> [here](../Data2Bots-Data-Engineering-Assessment/src/Submission/export2csvfordata2botssubmission.py)
+6.The python script needed to upload your files for submission is located  <a name="here"></a> [here](./src/Submission/export2csvfordata2botssubmission.py)
 
 ❌ : i wasn't provided with the AWS ACCESS KEY ID , therefore i upload my files to this private github repository.
 
 7.Schema management in IaC
 Postgres database Schema can be created using the terraform doucmentation [here](https://registry.terraform.io/providers/SemMulder/postgresql/latest/docs/resources/postgresql_schema) in addition, you could the atlas database resource manages the data schema of the database, using an HCL file describing the wanted state of the database. Read [this](https://registry.terraform.io/providers/ariga/atlas/latest/docs/resources/schema) from [Atlas](https://atlasgo.io/)
-My thought process of  implementing Schema management using terraform could be found  <a name="here"></a> [here](../Data2Bots-Data-Engineering-Assessment/Terraform/PostgreSQLSchema_management)
+My thought process of  implementing Schema management using terraform could be found  <a name="here"></a> [here](./Terraform/PostgreSQLSchema_management/schemadefinition.txt)
 
 8.Postgresql Automated Backup And Restore Strategy Using IaC
 
-The implementation is found 👉  <a name="here"></a> [here](../Data2Bots-Data-Engineering-Assessment/Terraform/PostgreSQLRDS_management)
+The implementation is found 👉  <a name="here"></a> [here](./Terraform/PostgreSQLRDS_management/Automated-RDS-Backup-and-Restore-Strategy-main/README.md)
 
 
-👆 : Arrow pointing up
-👇 : Arrow pointing down
-👈 : Arrow pointing left
-👉 : Arrow pointing right
-📖 : Open book
-⭐️ : Star
-🏁 : Start (Checkered Flag)
-🔚 : End
 
 
-For other random scripts relating to this assesment written in python ,check <a name="here"></a> [here](../Data2Bots-Data-Engineering-Assessment/sample_scripts/download.py)
+For other random scripts relating to this assesment written in python ,check <a name="here"></a> [here](./sample_scripts/download.py)
 
 ## Contribution 📖 
 

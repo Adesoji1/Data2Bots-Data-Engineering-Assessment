@@ -46,7 +46,7 @@ No outputs.
 
 ## Manage PostgreSQL on RDS with Terraform and Atlas
 
-The implementation is found 👉  <a name="here"></a> [here](/Data2Bots-Data-Engineering-Assessment/Terraform/PostgreSQLSchema_management/main.tf)
+The implementation is found 👉  <a name="here"></a> [here](main.tf)
 
 
 Many teams use Terraform, a popular, open-source, infrastructure-as-code (IaC) tool created by HashiCorp to provision their cloud infrastructure.
