@@ -116,7 +116,8 @@ My thought process of  implementing Schema management using terraform could be f
 
 The implementation is found 👉  <a name="here"></a> [here](./Terraform/PostgreSQLRDS_management/Automated-RDS-Backup-and-Restore-Strategy-main/README.md)
 
-
+9. Submission of Csv's Screenshot 👇
+![Result submission](Screenshots/result_submit.png)
 
 
 For other random scripts relating to this assesment written in python ,check <a name="here"></a> [here](./sample_scripts/download.py)
